@@ -89,6 +89,17 @@
             }
         };
 
+        const pwd = document.querySelector('#pwd');
+        const pwdError = document.querySelector('.pwd-error');
+        pwd.oninput = function() {
+            let nameRegex = RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]{1}).{8,}$');
+            if (nameRegex.test(pwd.value)) {
+                pwdError.textContent="";
+            } else {
+                pwdError.textContent = "Enter Valid Password";
+            }
+        };
+
         const salary = document.querySelector('#salary');
         const output = document.querySelector('.salary-output');
         output.textContent = salary.value;
