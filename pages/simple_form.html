@@ -34,7 +34,7 @@
             <error-output class="number-error" for="number"></error-output>
         </div>
         <div>
-            <label for="tel">Tel Number input type: </label>
+            <label for="tel">Telephone Number input: </label>
             <input type="tel" id="tel" name="tel" required>
             <error-output class="tel-error" for="tel"></error-output>
         </div>
@@ -43,7 +43,7 @@
             <input type="search" id="search" name="search">
         </div>
         <div class="nativeDateTimePicker">
-            <label for="startDate">Choose a Date and Time: </label>
+            <label for="startDate">Choose Date and Time: </label>
             <input type="datetime-local" id="startDate" name="startDate">
         </div>
         <div>
@@ -75,6 +75,17 @@
                 emailError.textContent="";
             } else {
                 emailError.textContent = "E-mail is Incorrect";
+            }
+        };
+
+        const tel = document.querySelector('#tel');
+        const telError = document.querySelector('.tel-error');
+        tel.oninput = function() {
+            let nameRegex = RegExp('^(91(\\s){0,1})(\\d{10})$');
+            if (nameRegex.test(tel.value)) {
+                telError.textContent="";
+            } else {
+                telError.textContent = "Telephone Number is Incorrect";
             }
         };
 
